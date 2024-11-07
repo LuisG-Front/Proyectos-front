@@ -3,7 +3,7 @@ html, body {
     display: grid;
     place-items: center;
     font-family: Arial, Helvetica, sans-serif;
-    background-color: grey;
+    background-color: rgb(255, 255, 255);
 }
 
 #contenedor_login{
@@ -29,7 +29,9 @@ label{
 
 button{
     border: none;
-    background-color: lightblue;
+    background-color: rgb(61, 129, 255);
     padding: 10px;
-
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+    font-size: 17px;
 }
