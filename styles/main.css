@@ -1,0 +1,35 @@
+html, body {
+    height: 100%;
+    display: grid;
+    place-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: grey;
+}
+
+#contenedor_login{
+    padding: 30px;
+    border-radius: 10px;
+    background-color: black;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+label{
+    color: white;
+}
+
+.input_login{
+    border-radius: 5px;
+    padding: 10px;
+    border: 1px solid black;
+}
+
+button{
+    border: none;
+    background-color: lightblue;
+    padding: 10px;
+
+}
