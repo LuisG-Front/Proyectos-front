@@ -3,7 +3,7 @@ html, body {
     display: grid;
     place-items: center;
     font-family: Arial, Helvetica, sans-serif;
-    background-color: rgb(255, 255, 255);
+    background-color: whitesmoke;
 }
 
 #contenedor_login{
@@ -12,7 +12,7 @@ html, body {
     background-color: black;
 }
 
-form {
+#form_login {
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -21,17 +21,26 @@ label{
     color: white;
 }
 
-.input_login{
+#username{
     border-radius: 5px;
     padding: 10px;
     border: 1px solid black;
 }
-
-button{
+#password{
+    border-radius: 5px;
+    padding: 10px;
+    border: 1px solid black;
+}
+#boton_login{
     border: none;
-    background-color: rgb(61, 129, 255);
+    background-color: white;
     padding: 10px;
     font-family: Arial, Helvetica, sans-serif;
     color: black;
     font-size: 17px;
+    cursor: pointer;
+}
+#boton_login:active{
+    background-color: grey;
+    color: white;
 }
