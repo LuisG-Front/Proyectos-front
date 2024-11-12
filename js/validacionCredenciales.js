@@ -17,8 +17,6 @@ function validateLogin() {
 
 
     if (username === validUsername && password === validPassword) {
-        mensaje.textContent = "Ha iniciado sesión correctamente";
-        // queda pendiente aplicar accion de redirección
         window.location.href = "todolist.html"
     } else {
         mensaje.textContent = "¡Credenciales incorrectas!";

@@ -3,9 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/todoList.css">
+    <script src="js/todoList.js"></script>
     <title>ToDoList</title>
 </head>
 <body>
-    <h1>Esto es TODO LIST</h1>
+    <h1>Lista de tareas</h1>
+    <input type="text" id="nuevaTarea" placeholder="Ingresar tarea">
+    <button onclick="agregarTarea()">Agregar Tarea</button>
+
+    <ul id="listaDeTareas">
+
+    </ul>
+    
 </body>
 </html>
