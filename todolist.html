@@ -8,13 +8,33 @@
     <title>ToDoList</title>
 </head>
 <body>
-    <h1>Lista de tareas</h1>
-    <input type="text" id="nuevaTarea" placeholder="Ingresar tarea">
-    <button onclick="agregarTarea()">Agregar Tarea</button>
+    <div id="contenedorAgregarTarea">
+        <h1>Lista de tareas</h1>
+        <input type="text" id="nuevaTarea" placeholder="Ingresar tarea">
+        <button onclick="agregarTarea()">Agregar Tarea</button>
+    </div>
 
-    <ul id="listaDeTareas">
+    <div class="columnasTareas">
+        <h3>Tareas Pendientes</h3>
+        <ul id="listaDeTareas">
+        </ul>
+    </div>
+    <div class="columnasTareas">
+        <h3>Tareas Terminadas</h3>
+        <ul id="listaDeTareasTerminadas">
+        </ul>
+    </div>
+    <div class="columnasTareas">
+        <h3>Tareas Eliminadas</h3>
+        <ul id="listaDeTareasEliminadas">
+        </ul>
+        
+    </div>
 
-    </ul>
+   
+
+
+    
     
 </body>
 </html>

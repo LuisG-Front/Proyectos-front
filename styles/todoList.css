@@ -1,8 +1,18 @@
-body{
-    font-family: Arial, Helvetica, sans-serif;
-    text-align: center;
-    margin: 10px;
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
 }
-li{
-    margin: 10px;
+
+ul {
+    list-style-type: none; /* Elimina los puntos de las listas */
+    padding: 0; /* Elimina el padding de las listas */
 }
+
+
+.columnasTareas {
+    display: inline-block; 
+    vertical-align: top; /*con esto solucioné el movimiento superior*/
+    width: 30%;
+    margin-right: 20px; 
+}
+

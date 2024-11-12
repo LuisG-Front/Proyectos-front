@@ -13,10 +13,30 @@ function agregarTarea(){
     //boton para eliminar
     const eliminarTarea = document.createElement("button");
     eliminarTarea.textContent = "Eliminar";
-    eliminarTarea.onclick = function() { nuevaTarea.remove();}
+    eliminarTarea.onclick = function() { 
+        nuevaTarea.remove();
+        const listaDeTareasEliminadas = document.getElementById("listaDeTareasEliminadas");
+        listaDeTareasEliminadas.appendChild(nuevaTarea);
+    }
+
+
+
+    //boton terminar
+    const terminarTarea = document.createElement("button");
+    terminarTarea.textContent = "Terminar"
+    //pendiente
+    terminarTarea.onclick = function() {
+        const listaTareaTerminadas = document.getElementById("listaDeTareasTerminadas");
+        listaTareaTerminadas.appendChild(nuevaTarea);
+        terminarTarea.remove();
+    }
+    
 
     //agregar boton para eliminar elemento de la lista
     nuevaTarea.appendChild(eliminarTarea);
+
+    //agregar boton terminar
+    nuevaTarea.appendChild(terminarTarea)
 
     //agregar elemento tarea a la lista
     document.getElementById("listaDeTareas").appendChild(nuevaTarea);
