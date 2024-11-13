@@ -17,6 +17,8 @@ function agregarTarea(){
         nuevaTarea.remove();
         const listaDeTareasEliminadas = document.getElementById("listaDeTareasEliminadas");
         listaDeTareasEliminadas.appendChild(nuevaTarea);
+        nuevaTarea.removeChild(eliminarTarea);
+        nuevaTarea.removeChild(terminarTarea);
     }
 
 
@@ -29,6 +31,8 @@ function agregarTarea(){
         const listaTareaTerminadas = document.getElementById("listaDeTareasTerminadas");
         listaTareaTerminadas.appendChild(nuevaTarea);
         terminarTarea.remove();
+        nuevaTarea.removeChild(eliminarTarea);
+        nuevaTarea.removeChild(terminarTarea);
     }
     
 
