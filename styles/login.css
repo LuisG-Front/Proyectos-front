@@ -5,6 +5,10 @@ html, body {
     font-family: Arial, Helvetica, sans-serif;
     background-color: whitesmoke;
 }
+
+p{
+    color: red;
+}
 h3{
     margin-top: 10px;
     font-size: 20px;

@@ -19,6 +19,6 @@ function validateLogin() {
     if (username === validUsername && password === validPassword) {
         window.location.href = "todolist.html"
     } else {
-        mensaje.textContent = "¡Credenciales incorrectas!";
+        mensaje.textContent = "¡Usuario o contraseña incorrecta!";
     }
 }
