@@ -1,40 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles/todoList.css">
-    <script src="js/todoList.js"></script>
-    <title>ToDoList</title>
-</head>
-<body>
-    <div id="contenedorAgregarTarea">
-        <h1>Lista de tareas</h1>
-        <input type="text" id="nuevaTarea" placeholder="Ingresar tarea">
-        <button onclick="agregarTarea()">Agregar Tarea</button>
-    </div>
-
-    <div class="columnasTareas">
-        <h3>Tareas Pendientes</h3>
-        <ul id="listaDeTareas">
-        </ul>
-    </div>
-    <div class="columnasTareas">
-        <h3>Tareas Terminadas</h3>
-        <ul id="listaDeTareasTerminadas">
-        </ul>
-    </div>
-    <div class="columnasTareas">
-        <h3>Tareas Eliminadas</h3>
-        <ul id="listaDeTareasEliminadas">
-        </ul>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="styles/todoList.css">
         
-    </div>
-
-   
-
-
-    
-    
-</body>
-</html>
+        <title>ToDoList</title>
+    </head>
+    <body>
+        <h1>TO DO LIST</h1>
+        <form id="formAgregarTarea">
+            <input type="text" id="nuevaTarea" placeholder="Escribe tu tarea">
+            <button type="submit">Agregar Tarea</button>
+        </form>
+        
+        <h3>Tareas Pendientes</h3>
+        <ul id="listaDeTareas"></ul>
+        
+        <h3>Tareas Completadas</h3>
+        <ul id="listaDeTareasTerminadas"></ul>
+        
+        <h3>Tareas Eliminadas</h3>
+        <ul id="listaDeTareasEliminadas"></ul>
+        <script src="js/todoList.js"></script>
+    </body>
+    </html>

@@ -1,20 +1,95 @@
+/* estilos/todoList.css */
+
 body {
     font-family: Arial, sans-serif;
-    margin: 20px;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+input[type="text"] {
+    width: 300px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+    transition: border-color 0.3s;
+}
+
+input[type="text"]:focus {
+    border-color: #007BFF;
+    outline: none;
+}
+
+button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007BFF;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+h3 {
+    color: #333;
+    margin-top: 30px;
 }
 
 ul {
-    list-style-type: none; /* Elimina los puntos de las listas */
-    padding: 0; /* Elimina el padding de las listas */
+    list-style-type: none;
+    padding: 0;
 }
 
-
-.columnasTareas {
-    display: inline-block; 
-    vertical-align: top; /*con esto solucioné el movimiento superior*/
-    width: 30%;
-    margin-right: 20px; 
+li {
+    background-color: white;
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
-button{
-    margin-right: 5px
+
+li.completadas {
+    text-decoration: line-through;
+    color: gray;
+}
+
+li.eliminadas {
+    color: red;
+    opacity: 0.6;
+}
+
+li button {
+    background-color: transparent;
+    border: none;
+    color: #007BFF;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+/* Alinear botones a la derecha */
+li .button-container {
+    display: flex;
+    justify-content: flex-end; /* Alinear botones a la derecha */
+}
+
+li button:hover {
+    color: #0056b3;
+}
+
+h1 {
+    text-align: center;
 }

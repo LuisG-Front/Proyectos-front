@@ -22,3 +22,4 @@ function validateLogin() {
         mensaje.textContent = "¡Usuario o contraseña incorrecta!";
     }
 }
+x

@@ -1,57 +1,125 @@
-function agregarTarea(){
+document.addEventListener("DOMContentLoaded", function () {
+    const formAgregarTarea = document.getElementById('formAgregarTarea');
+    const listaDeTareas = document.getElementById("listaDeTareas");
+    const listaDeTareasEliminadas = document.getElementById("listaDeTareasEliminadas");
+    const listaDeTareasTerminadas = document.getElementById("listaDeTareasTerminadas");
 
-    const nuevaTareaTexto = document.getElementById("nuevaTarea").value;
+    cargarTareas();
 
-    if(nuevaTareaTexto === ""){
-        alert("Ingresar nueva tarea!");
-        return;
-    }
-    //crear elemento li en la lista
-    const nuevaTarea = document.createElement("li");
-    nuevaTarea.textContent = nuevaTareaTexto + " ";
+    formAgregarTarea.addEventListener("submit", function (event) {
+        event.preventDefault();
+        agregarTarea();
+        guardarTareas();
+    });
 
-    //boton para eliminar
-    const eliminarTarea = document.createElement("button");
-    eliminarTarea.textContent = "Eliminar";
-    eliminarTarea.onclick = function() { 
-        nuevaTarea.remove();
-        const listaDeTareasEliminadas = document.getElementById("listaDeTareasEliminadas");
-        listaDeTareasEliminadas.appendChild(nuevaTarea);
-        nuevaTarea.removeChild(eliminarTarea);
-        nuevaTarea.removeChild(terminarTarea);
-        nuevaTarea.removeChild(editarTarea);
-    }
+    function agregarTarea() {
+        const nuevaTareaTexto = document.getElementById("nuevaTarea").value;
 
+        if (nuevaTareaTexto === "") {
+            alert("Ingresar nueva tarea!");
+            return;
+        }
 
-
-    //boton terminar
-    const terminarTarea = document.createElement("button");
-    terminarTarea.textContent = "Completar"
-    //pendiente
-    terminarTarea.onclick = function() {
-        const listaTareaTerminadas = document.getElementById("listaDeTareasTerminadas");
-        listaTareaTerminadas.appendChild(nuevaTarea);
-        terminarTarea.remove();
-        nuevaTarea.removeChild(eliminarTarea);
-        nuevaTarea.removeChild(terminarTarea);
-    }
-    
-    const editarTarea = document.createElement("button");
-    editarTarea.textContent = "Editar";
-    editarTarea.onclick = function(){
+        crearTarea(nuevaTareaTexto, "pendiente");
+        document.getElementById("nuevaTarea").value = "";
         
+        guardarTareas(); 
     }
 
-    //agregar boton para eliminar elemento de la lista
-    nuevaTarea.appendChild(eliminarTarea);
+     function crearTarea(text, estado) {
+        const nuevaTarea = document.createElement("li");
+        nuevaTarea.textContent = text + " ";
 
-    //agregar boton completar
-    nuevaTarea.appendChild(terminarTarea)
-    //agregar boton Editar 
-    nuevaTarea.appendChild(editarTarea);
+        const eliminarTarea = document.createElement("button");
+        eliminarTarea.textContent = "Eliminar";
+        eliminarTarea.onclick = function () {
+            nuevaTarea.remove();
+            listaDeTareasEliminadas.appendChild(nuevaTarea);
+            nuevaTarea.removeChild(eliminarTarea);
+            nuevaTarea.removeChild(terminarTarea);
+            nuevaTarea.removeChild(editarTarea);
+            guardarTareas(); // Guardar cambios
+        };
 
-    //agregar elemento tarea a la lista
-    document.getElementById("listaDeTareas").appendChild(nuevaTarea);
-    //Limpiar cuadro de texto de input    
-    document.getElementById("nuevaTarea").value = "";
-}
+        const terminarTarea = document.createElement("button");
+        terminarTarea.textContent = "Completar";
+        terminarTarea.onclick = function () {
+            nuevaTarea.remove();
+            listaDeTareasTerminadas.appendChild(nuevaTarea);
+            terminarTarea.remove();
+            nuevaTarea.removeChild(eliminarTarea);
+            guardarTareas(); 
+        };
+
+        // Botón "Editar"
+        const editarTarea = document.createElement("button");
+        editarTarea.textContent = "Editar";
+        editarTarea.onclick = function () {
+            const nuevoTexto = prompt("Edita la tarea:", text);
+            if (nuevoTexto !== null && nuevoTexto !== "") {
+                nuevaTarea.firstChild.textContent = nuevoTexto + " ";
+                guardarTareas(); 
+            }
+        };
+
+        nuevaTarea.appendChild(eliminarTarea);
+        nuevaTarea.appendChild(terminarTarea);
+        nuevaTarea.appendChild(editarTarea);
+
+        if (estado === "pendiente") {
+            listaDeTareas.appendChild(nuevaTarea);
+        } else if (estado === "terminada") {
+            listaDeTareasTerminadas.appendChild(nuevaTarea);
+        } else if (estado === "eliminada") {
+            listaDeTareasEliminadas.appendChild(nuevaTarea);
+        }
+    }
+
+    // guardo en localStorage
+    function guardarTareas() {
+        const tareas = {
+            pendientes: [],
+            terminadas: [],
+            eliminadas: [],
+        };
+
+        //guardo tareas pendientes
+        listaDeTareas.querySelectorAll('li').forEach(function (item) {
+            tareas.pendientes.push(item.firstChild.textContent.trim());
+        });
+
+        //guardo tareas completadas
+        listaDeTareasTerminadas.querySelectorAll('li').forEach(function (item) {
+            tareas.terminadas.push(item.firstChild.textContent.trim());
+        });
+
+        //guardo tareas eliminadas
+        listaDeTareasEliminadas.querySelectorAll('li').forEach(function (item) {
+            tareas.eliminadas.push(item.firstChild.textContent.trim());
+        });
+
+        // Guardo en localStorage
+        localStorage.setItem('tareas', JSON.stringify(tareas));
+    }
+
+    // Cargo tareas desde local storage
+    function cargarTareas() {
+        const tareasGuardadas = JSON.parse(localStorage.getItem('tareas')) || {
+            pendientes: [],
+            terminadas: [],
+            eliminadas: [],
+        };
+
+        //cargo pendientes
+        tareasGuardadas.pendientes.forEach((text) => crearTarea(text, "pendiente"));
+
+        //cargo terminadas
+        tareasGuardadas.terminadas.forEach((text) => crearTarea(text, "terminada"));
+        
+        //cargo eliminadas
+        tareasGuardadas.eliminadas.forEach((text) => crearTarea(text, "eliminada"));
+
+    }
+    nuevaTarea.removeChild(terminarTarea);
+    nuevaTarea.removeChild(editarTarea);
+});
