@@ -39,6 +39,7 @@ button {
 
 button:hover {
     background-color: #0056b3;
+    color: white;
 }
 
 h3 {
@@ -78,6 +79,7 @@ li button {
     color: #007BFF;
     cursor: pointer;
     transition: color 0.3s;
+    
 }
 
 /* Alinear botones a la derecha */
@@ -87,7 +89,8 @@ li .button-container {
 }
 
 li button:hover {
-    color: #0056b3;
+    color: white;
+    
 }
 
 h1 {
