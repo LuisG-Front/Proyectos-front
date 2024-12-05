@@ -4,6 +4,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const listaDeTareasEliminadas = document.getElementById("listaDeTareasEliminadas");
     const listaDeTareasTerminadas = document.getElementById("listaDeTareasTerminadas");
     const botonBorrarLocalStorage = document.getElementById("borrarLocalStorage");
+    const nuevaTarea = document.getElementById('nuevaTarea');
+    const btnAgregarTarea = document.getElementById('btnAgregarTarea');
 
     cargarTareas();
 
@@ -12,7 +14,18 @@ document.addEventListener("DOMContentLoaded", function () {
         agregarTarea();
     });
 
+    nuevaTarea.addEventListener('input', function(){
+        //queda pendiente si solo ingresa espacios
+        if(nuevaTarea.value.length < 3){
+            btnAgregarTarea.disabled = true;
+        }else{
+            btnAgregarTarea.disabled = false;
+        }
+    });
+
+
     function agregarTarea() {
+  
         const nuevaTareaTexto = document.getElementById("nuevaTarea").value;
 
         if (nuevaTareaTexto === "") {
@@ -108,6 +121,7 @@ document.addEventListener("DOMContentLoaded", function () {
         tareasGuardadas.eliminadas.forEach((text) => crearTarea(text, "eliminada"));
     }
 
+
     function borrarLocalStorage(){
         localStorage.clear();
         alert("El local Storage ha sido borrado");
@@ -115,3 +129,4 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     botonBorrarLocalStorage.addEventListener('click', borrarLocalStorage);
 });
+
