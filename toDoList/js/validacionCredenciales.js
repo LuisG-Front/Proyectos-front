@@ -22,7 +22,9 @@ function validateLogin() {
 
     if (username === validUsername && password === validPassword) {
         window.location.href = "todolist.html"
-    } else {
+    }else if( username === "" && password ===""){
+        alert("Ingrese credenciales, campos en blanco...")
+    }else {
         alert("Usuario o contraseña incorrectas")
     }
 }
