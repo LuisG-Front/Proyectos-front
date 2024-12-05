@@ -19,7 +19,7 @@ function validateLogin() {
     if (username === validUsername && password === validPassword) {
         window.location.href = "todolist.html"
     } else {
-        mensaje.textContent = "¡Usuario o contraseña incorrecta!";
+        alert("Usuario o contraseña incorrectas")
     }
 }
 x
