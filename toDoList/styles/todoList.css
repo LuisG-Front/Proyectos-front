@@ -1,10 +1,24 @@
-/* estilos/todoList.css */
-
 body {
-    font-family: Arial, sans-serif;
-    background-color:whitesmoke;
+    font-family: 'Arial', sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
     margin: 0;
     padding: 20px;
+    line-height: 1.6;
+}
+
+h1 {
+    text-align: center;
+    color: #5e61f1;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+}
+
+h3 {
+    color: #555;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
 }
 
 form {
@@ -14,48 +28,61 @@ form {
 }
 
 input[type="text"] {
-    width: 300px;
+    width: 60%;
     padding: 10px;
-    border: 1px solid #ccc;
+    font-size: 16px;
+    border: 2px solid #ddd;
     border-radius: 5px;
-    margin-right: 10px;
     transition: border-color 0.3s;
 }
 
 input[type="text"]:focus {
-    border-color: #007BFF;
+    border-color: #4CAF50;
     outline: none;
 }
 
 button {
-    padding: 10px 15px;
+    padding: 10px 20px;
+    font-size: 16px;
     border: none;
+    background-color: #5e61f1;
+    color: white;
     border-radius: 5px;
-    background-color: #007BFF;
-    color: white;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, transform 0.2s;
 }
 
-button:hover {
-    background-color: #0056b3;
-    color: white;
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
 }
 
-h3 {
-    color: #333;
-    margin-top: 30px;
+button:not(:disabled):hover {
+    background-color: #5e61f1;
+    transform: translateY(-2px);
 }
 
+button#borrarLocalStorage {
+    background-color: #f44336;
+    margin: 10px 0 20px;
+}
+
+button#borrarLocalStorage:hover {
+    background-color: #e53935;
+}
+
+/* List Styles */
 ul {
-    list-style-type: none;
+    list-style: none;
     padding: 0;
+    margin: 0;
 }
 
-li {
-    background-color: white;
-    margin: 5px 0;
-    padding: 10px;
+ul li {
+    background-color: #fff;
+    margin: 10px 0;
+    padding: 15px;
+    border: 1px solid #ddd;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     display: flex;
@@ -63,37 +90,46 @@ li {
     align-items: center;
 }
 
-li.completadas {
+ul li.completed {
     text-decoration: line-through;
-    color: gray;
+    color: #888;
+    background-color: #e8f5e9;
 }
 
-li.eliminadas {
+ul li.deleted {
+    color: #fff;
+    background-color: #f44336;
+}
+
+ul li {
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+ul li:hover {
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    input[type="text"] {
+        width: 80%;
+    }
+
+    button {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+
+    ul li {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+}
+#listaDeTareasEliminadas{
+    text-decoration: line-through;
     color: red;
-    opacity: 0.6;
 }
-
-li button {
-    background-color: transparent;
-    border: none;
-    color: #007BFF;
-    cursor: pointer;
-    transition: color 0.3s;
-    
-}
-
-/* Alinear botones a la derecha */
-li .button-container {
-    display: flex;
-    justify-content: flex-end; /* Alinear botones a la derecha */
-}
-
-li button:hover {
-    color: white;
-    
-}
-
-h1 {
-    text-align: center;
-    color: black;
+#listaDeTareasTerminadas{
+    text-decoration:underline;
+    color: green;
 }
