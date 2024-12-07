@@ -134,3 +134,6 @@ ul li:hover {
     text-decoration:underline;
     color: green;
 }
+.contenedor-botones button{
+    margin-left: 5px;
+}
