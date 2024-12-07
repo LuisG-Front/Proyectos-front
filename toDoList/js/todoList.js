@@ -73,9 +73,14 @@ document.addEventListener("DOMContentLoaded", function () {
                 // 
             };
 
-            nuevaTarea.appendChild(eliminarTarea);
-            nuevaTarea.appendChild(terminarTarea);
-            nuevaTarea.appendChild(editarTarea);
+
+        const contenedorDivBotones = document.createElement("div");
+        contenedorDivBotones.className = "contenedor-botones"
+        contenedorDivBotones.appendChild(eliminarTarea)
+        contenedorDivBotones.appendChild(terminarTarea)
+        contenedorDivBotones.appendChild(editarTarea)
+        nuevaTarea.appendChild(contenedorDivBotones);
+  
         }
 
         if (estado === "pendiente") {
