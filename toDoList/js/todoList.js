@@ -27,13 +27,13 @@ document.addEventListener("DOMContentLoaded", function () {
     function agregarTarea() {
   
         const nuevaTareaTexto = document.getElementById("nuevaTarea").value;
-
-        if (nuevaTareaTexto === "") {
+        const tareaSanitizada = DOMPurify.sanitize(nuevaTareaTexto);
+        if (tareaSanitizada === "") {
             alert("No ha ingresado texto para nueva tarea");
             return;
         }
 
-        crearTarea(nuevaTareaTexto, "pendiente");
+        crearTarea(tareaSanitizada, "pendiente");
         document.getElementById("nuevaTarea").value = "";
         guardarTareas();
     }

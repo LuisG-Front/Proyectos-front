@@ -18,11 +18,13 @@ function validateLogin() {
     const username = document.getElementById("username").value;
     const password = document.getElementById("password").value;
 
+    const usernameSanitizado = DOMPurify.sanitize(username);
+    const passwordSanitizado = DOMPurify.sanitize(password);
 
 
-    if (username === validUsername && password === validPassword) {
+    if (usernameSanitizado === validUsername && passwordSanitizado === validPassword) {
         window.location.href = "todolist.html"
-    }else if( username === "" && password ===""){
+    }else if( usernameSanitizado === "" && passwordSanitizado ===""){
         alert("Ingrese credenciales, campos en blanco...")
     }else {
         alert("Usuario o contraseña incorrectas")
