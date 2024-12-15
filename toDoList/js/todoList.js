@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const botonBorrarLocalStorage = document.getElementById("borrarLocalStorage");
     const nuevaTarea = document.getElementById('nuevaTarea');
     const btnAgregarTarea = document.getElementById('btnAgregarTarea');
+    
 
     cargarTareas();
 
@@ -18,7 +19,12 @@ document.addEventListener("DOMContentLoaded", function () {
         //queda pendiente si solo ingresa espacios
         if(nuevaTarea.value.length < 3){
             btnAgregarTarea.disabled = true;
-        }else{
+
+        }else if(nuevaTarea.value.startsWith(" ")){
+            btnAgregarTarea.disabled = true;
+
+        }
+        else{
             btnAgregarTarea.disabled = false;
         }
     });
